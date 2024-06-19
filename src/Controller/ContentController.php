@@ -24,7 +24,13 @@ class ContentController extends AbstractController
     }
 
     /**
+     * Crea un nuevo contenido.
+     *
      * @Route("/api/content", name="api_create_content", methods={"POST"})
+     *
+     * @param Request $request La solicitud HTTP con los datos JSON del contenido a crear.
+     * @param Security $security El servicio de seguridad para obtener el usuario autenticado.
+     * @return JsonResponse Una respuesta JSON indicando el éxito de la operación.
      */
     public function createContent(Request $request, Security $security)
     {
@@ -43,7 +49,12 @@ class ContentController extends AbstractController
     }
 
     /**
+     * Lista todos los contenidos o filtra por título si se proporciona el parámetro 'title' en la consulta.
+     *
      * @Route("/api/content", name="api_list_contents", methods={"GET"})
+     *
+     * @param Request $request La solicitud HTTP con los parámetros de consulta opcionales.
+     * @return JsonResponse Una respuesta JSON con los contenidos recuperados.
      */
     public function listContents(Request $request)
     {
@@ -54,7 +65,12 @@ class ContentController extends AbstractController
     }
 
     /**
+     * Obtiene un contenido específico por su ID.
+     *
      * @Route("/api/content/{id}", name="api_get_content", methods={"GET"})
+     *
+     * @param Content $content El contenido recuperado automáticamente por su ID.
+     * @return JsonResponse Una respuesta JSON con el contenido recuperado.
      */
     public function getContent(Content $content)
     {
@@ -62,7 +78,13 @@ class ContentController extends AbstractController
     }
 
     /**
+     * Actualiza un contenido existente.
+     *
      * @Route("/api/content/{id}", name="api_update_content", methods={"PUT"})
+     *
+     * @param Request $request La solicitud HTTP con los datos JSON actualizados del contenido.
+     * @param Content $content El contenido recuperado automáticamente por su ID.
+     * @return JsonResponse Una respuesta JSON indicando el éxito de la operación.
      */
     public function updateContent(Request $request, Content $content)
     {
@@ -78,7 +100,12 @@ class ContentController extends AbstractController
     }
 
     /**
+     * Elimina un contenido existente.
+     *
      * @Route("/api/content/{id}", name="api_delete_content", methods={"DELETE"})
+     *
+     * @param Content $content El contenido recuperado automáticamente por su ID.
+     * @return JsonResponse Una respuesta JSON indicando el éxito de la operación.
      */
     public function deleteContent(Content $content)
     {
