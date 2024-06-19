@@ -1,0 +1,68 @@
+# config/routes.yaml
+
+api_register:
+    path: /api/register
+    controller: App\Controller\AuthenticationController::register
+    methods: [POST]
+
+api_login:
+    path: /api/login
+    controller: App\Controller\AuthenticationController::login
+    methods: [POST]
+
+api_get_user:
+    path: /api/user
+    controller: App\Controller\AuthenticationController::getUserProfile
+    methods: [GET]
+
+api_update_user:
+    path: /api/user
+    controller: App\Controller\AuthenticationController::updateUserProfile
+    methods: [PUT]
+
+# config/routes.yaml
+
+api_create_content:
+    path: /api/content
+    controller: App\Controller\ContentController::createContent
+    methods: [POST]
+
+api_list_contents:
+    path: /api/content
+    controller: App\Controller\ContentController::listContents
+    methods: [GET]
+
+api_get_content:
+    path: /api/content/{id}
+    controller: App\Controller\ContentController::getContent
+    methods: [GET]
+
+api_update_content:
+    path: /api/content/{id}
+    controller: App\Controller\ContentController::updateContent
+    methods: [PUT]
+
+api_delete_content:
+    path: /api/content/{id}
+    controller: App\Controller\ContentController::deleteContent
+    methods: [DELETE]
+
+# config/routes.yaml
+
+api_rate_content:
+    path: /api/content/{id}/rate
+    controller: App\Controller\RatingController::rateContent
+    methods: [POST]
+
+# config/routes.yaml
+
+api_favorite_content:
+    path: /api/content/{id}/favorite
+    controller: App\Controller\FavoriteController::favoriteContent
+    methods: [POST]
+
+api_list_favorites:
+    path: /api/content/favorites
+    controller: App\Controller\FavoriteController::listFavorites
+    methods: [GET]
+
