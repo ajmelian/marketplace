@@ -24,7 +24,15 @@ class RatingController extends AbstractController
     }
 
     /**
+     * Califica un contenido específico.
+     *
      * @Route("/api/content/{id}/rate", name="api_rate_content", methods={"POST"})
+     *
+     * @param Request $request La solicitud HTTP recibida.
+     * @param Content $content El contenido a calificar obtenido automáticamente desde la ruta.
+     * @param Security $security El servicio de seguridad para obtener el usuario autenticado.
+     * 
+     * @return JsonResponse Una respuesta JSON indicando el éxito de la operación.
      */
     public function rateContent(Request $request, Content $content, Security $security)
     {
