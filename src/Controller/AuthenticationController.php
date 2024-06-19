@@ -26,8 +26,14 @@ class AuthenticationController extends AbstractController
         $this->jwtManager = $jwtManager;
     }
 
+
     /**
+     * Registra un nuevo usuario.
+     *
      * @Route("/api/register", name="api_register", methods={"POST"})
+     * 
+     * @param Request $request La solicitud HTTP con datos de registro en formato JSON.
+     * @return JsonResponse La respuesta JSON con un mensaje de éxito y el código HTTP 201 Created.
      */
     public function register(Request $request)
     {
@@ -44,7 +50,12 @@ class AuthenticationController extends AbstractController
     }
 
     /**
+     * Inicia sesión y devuelve el token JWT.
+     *
      * @Route("/api/login", name="api_login", methods={"POST"})
+     * 
+     * @param Request $request La solicitud HTTP de inicio de sesión.
+     * @return JsonResponse La respuesta JSON con el token JWT generado.
      */
     public function login(Request $request)
     {
@@ -57,7 +68,12 @@ class AuthenticationController extends AbstractController
     }
 
     /**
+     * Obtiene el perfil del usuario autenticado.
+     *
      * @Route("/api/user", name="api_get_user", methods={"GET"})
+     * 
+     * @param Security $security El servicio de seguridad para obtener el usuario actual.
+     * @return JsonResponse La respuesta JSON con los datos del usuario (id, email, roles).
      */
     public function getUserProfile(Security $security)
     {
@@ -70,7 +86,13 @@ class AuthenticationController extends AbstractController
     }
 
     /**
+     * Actualiza el perfil del usuario autenticado.
+     *
      * @Route("/api/user", name="api_update_user", methods={"PUT"})
+     * 
+     * @param Request $request La solicitud HTTP con datos actualizados en formato JSON.
+     * @param Security $security El servicio de seguridad para obtener el usuario actual.
+     * @return JsonResponse La respuesta JSON con un mensaje de éxito.
      */
     public function updateUserProfile(Request $request, Security $security)
     {
