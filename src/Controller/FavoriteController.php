@@ -24,7 +24,15 @@ class FavoriteController extends AbstractController
     }
 
     /**
+     * Marca como Favorito un contenido específico para el usuario autenticado.
+     *
      * @Route("/api/content/{id}/favorite", name="api_favorite_content", methods={"POST"})
+     *
+     * @param Request $request La solicitud HTTP que contiene los datos de la petición.
+     * @param Content $content El contenido específico a marcar como favorito (obtenido automáticamente por Symfony).
+     * @param Security $security Servicio de seguridad para obtener el usuario autenticado.
+     *
+     * @return JsonResponse Una respuesta JSON indicando el éxito de la operación.
      */
     public function favoriteContent(Request $request, Content $content, Security $security)
     {
@@ -39,7 +47,13 @@ class FavoriteController extends AbstractController
     }
 
     /**
+     * Lista todos los contenidos marcados como favoritos por el usuario autenticado.
+     *
      * @Route("/api/content/favorites", name="api_list_favorites", methods={"GET"})
+     *
+     * @param Security $security Servicio de seguridad para obtener el usuario autenticado.
+     *
+     * @return JsonResponse Una respuesta JSON con los favoritos del usuario.
      */
     public function listFavorites(Security $security)
     {
